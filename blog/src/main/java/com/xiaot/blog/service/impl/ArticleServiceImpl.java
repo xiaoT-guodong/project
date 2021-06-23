@@ -5,11 +5,11 @@ import com.xiaot.blog.dao.ArticleDao;
 import com.xiaot.blog.dto.ArticleDto;
 import com.xiaot.blog.po.Article;
 import com.xiaot.blog.service.ArticleService;
+import com.xiaot.blog.vo.ArticleVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author xiaoT
@@ -21,7 +21,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     private ArticleDao articleDao;
 
     @Override
-    public List<Map<String, Object>> page(ArticleDto articleDto) {
+    public List<ArticleVo> page(ArticleDto articleDto) {
         return articleDao.page(articleDto);
     }
 

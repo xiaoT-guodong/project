@@ -3,8 +3,9 @@
 
 <mapper namespace="com.xiaot.blog.dao.ArticleDao">
 
-    <select id="page" resultType="map">
-        select * from blog_article ba inner join sys_user su on ba.user_id = su.id
+    <select id="page" resultType="ArticleVo">
+        select ba.id, su.nickname, ba.title, ba.content, ba.create_time createTime, ba.update_time updateTime
+        from blog_article ba inner join sys_user su on ba.user_id = su.id
         <if test="pageSize != ''">
             limit ${pageNo},${pageSize}
         </if>
