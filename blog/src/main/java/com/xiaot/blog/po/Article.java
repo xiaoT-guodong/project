@@ -2,17 +2,14 @@ package com.xiaot.blog.po;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.xiaot.common.entity.Date;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author xiaoT
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @TableName("blog_article")
-public class Article extends Date {
+public class Article {
 
     private Integer id;
 

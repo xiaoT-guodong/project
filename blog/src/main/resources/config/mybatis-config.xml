@@ -8,7 +8,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.xiaot.blog.po"/>
+        <package name="com.xiaot.blog.vo"/>
     </typeAliases>
 
 </configuration>
