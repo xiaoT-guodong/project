@@ -62,8 +62,8 @@ public class BaseController {
 
     /**
      * 分页基础数据格式
-     * @param total
-     * @param data
+     * @param total 总条数
+     * @param data 数据列表
      * @return {<br/>&nbsp;&nbsp;"total":...,<br/>&nbsp;&nbsp;"data":[...]<br/>}
      */
     private Map<String, Object> basePage(Integer total, List<?> data) {
@@ -100,12 +100,24 @@ public class BaseController {
 
     /**
      * 失败返回格式
-     * @param code
-     * @param msg
+     * @param code 状态码
+     * @param msg 信息
      * @return {<br/>&nbsp;&nbsp;"code":...,<br/>&nbsp;&nbsp;"msg":"...",<br/>&nbsp;&nbsp;"data":null<br/>}
      */
     public Map<String, Object> fail(Integer code, String msg) {
         return baseResult(code, msg, null);
+    }
+
+    /**
+     * 插入、修改、删除操作返回格式
+     * @param success 是否成功
+     * @return {<br/>&nbsp;&nbsp;"code":...,<br/>&nbsp;&nbsp;"msg":"...",<br/>&nbsp;&nbsp;"data":{<br/>&nbsp;&nbsp;
+     *          &nbsp;&nbsp;&nbsp;&nbsp;"success":...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
+     */
+    public Map<String, Object> update(Boolean success) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("success", success);
+        return success(data);
     }
 
 }
