@@ -1,8 +1,11 @@
 package com.xiaot.common.entity;
 
+import lombok.Data;
+
 /**
  * @author xiaoT
  */
+@Data
 public class Date {
 
     /**
