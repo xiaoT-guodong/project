@@ -1,19 +1,19 @@
 package com.xiaot.blog.controller;
 
+import com.xiaot.blog.dto.ArticleDto;
+import com.xiaot.blog.po.Article;
 import com.xiaot.blog.service.ArticleService;
 import com.xiaot.common.controller.BaseController;
-import com.xiaot.common.dto.Page;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Map;
 
 /**
  * @author xiaoT
+ * 文章
  */
-@Controller
+@RestController
 @RequestMapping("/article")
 public class ArticleController extends BaseController {
 
@@ -24,8 +24,32 @@ public class ArticleController extends BaseController {
      * 列表
      */
     @GetMapping
-    public Map<String, Object> list(Page page) {
-        return page(articleService.count(), articleService.list());
+    public Map<String, Object> list(ArticleDto articleDto) {
+        return page(articleService.pageCnt(articleDto), articleService.page(articleDto));
+    }
+
+    /**
+     * 新增
+     */
+    @PostMapping
+    public Map<String, Object> save(Article article) {
+        return update(articleService.save(article));
+    }
+
+    /**
+     * 修改
+     */
+    @PutMapping
+    public Map<String, Object> update(Article article) {
+        return update(articleService.updateById(article));
+    }
+
+    /**
+     * 逻辑删除
+     */
+    @DeleteMapping
+    public Map<String, Object> delete(Integer id) {
+        return update(articleService.removeById(id));
     }
 
 }

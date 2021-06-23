@@ -3,5 +3,15 @@
 
 <mapper namespace="com.xiaot.blog.dao.ArticleDao">
 
+    <select id="page" resultType="map">
+        select * from blog_article ba inner join sys_user su on ba.user_id = su.id
+        <if test="pageSize != ''">
+            limit ${pageNo},${pageSize}
+        </if>
+    </select>
+
+    <select id="pageCnt" resultType="int">
+        select count(1) from blog_article ba inner join sys_user su on ba.user_id = su.id
+    </select>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.xiaot.blog.po;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.xiaot.common.entity.Date;
 import lombok.Data;
@@ -33,6 +34,7 @@ public class Article extends Date {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
 
 }
