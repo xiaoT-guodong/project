@@ -7,19 +7,24 @@ import java.util.Map;
 
 /**
  * @author xiaoT
- * 是否删除
+ * 状态
  */
-public enum DeleteEnum {
+public enum StatusEnum {
 
     /**
-     * 未删除
+     * 注销
      */
-    NO(0, "未删除"),
+    LOGOUT(0, "注销"),
 
     /**
-     * 已删除
+     * 正常
      */
-    YES(1, "已删除")
+    NORMAL(1, "正常"),
+
+    /**
+     * 黑名单
+     */
+    BLACKLIST(2, "黑名单")
     ;
 
     /**
@@ -28,13 +33,13 @@ public enum DeleteEnum {
     private Integer id;
 
     /**
-     * 是否删除
+     * 状态
      */
     private String name;
 
     public static List<Map<String, Object>> enums() {
         List<Map<String, Object>> enumList = new ArrayList<>();
-        for (DeleteEnum e : values()) {
+        for (StatusEnum e : values()) {
             Map<String, Object> enumMap = new HashMap<>();
             enumMap.put("id", e.id);
             enumMap.put("name", e.name);
@@ -43,7 +48,7 @@ public enum DeleteEnum {
         return enumList;
     }
 
-    DeleteEnum(Integer id, String name) {
+    StatusEnum(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -63,4 +68,5 @@ public enum DeleteEnum {
     public void setName(String name) {
         this.name = name;
     }
+
 }

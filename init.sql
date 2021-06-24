@@ -11,6 +11,7 @@ CREATE TABLE `sys_user` (
 	`birthday` datetime DEFAULT '1949-10-01 00:00:00' COMMENT '出生日期',
 	`phone` CHAR ( 11 ) DEFAULT '' COMMENT '手机号',
 	`id_cart` CHAR ( 18 ) DEFAULT '' COMMENT '身份证号',
+	`status` INT NOT NULL DEFAULT 0 COMMENT '状态，0-注销，1-正常，2-黑名单',
 	`create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 	`update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 	PRIMARY KEY ( `id` ) 
